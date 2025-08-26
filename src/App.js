@@ -25,7 +25,7 @@ function App() {
               'Software Engineering Student',
               'AWS Cloud Support Intern',
               'Python Developer',
-              'Infrastructure-as-Code Enthusiast'
+              'Serverless & Amplify Enthusiast'
             ]}
             typeSpeed={40}
             backSpeed={30}
@@ -35,11 +35,33 @@ function App() {
       </motion.header>
 
       <main className="container">
-        <motion.section id="project" className="project card" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-          <h2 className="project-title">Serverless Metadata Extraction (AWS)</h2>
+        {/* PROJECT */}
+        <motion.section
+          id="project"
+          className="project card"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <h2 className="project-title">Serverless Metadata Extraction (AWS + Amplify)</h2>
+
           <p className="project-description">
-            Designed and implemented a fully serverless, event-driven metadata extraction pipeline on AWS. Leveraged S3 event notifications, EventBridge, Lambda (Python), and DynamoDB with infrastructure-as-code using AWS CloudFormation. Demonstrates expertise in IAM policy design, CI/CD readiness, and resilient architecture patterns.
+            Event-driven, serverless pipeline built manually (no CloudFormation) and fronted by an
+            Amplify-hosted website. Users upload documents via pre-signed S3 URLs; S3 events trigger
+            processing to extract simple metadata/tags and store results in DynamoDB. All resources
+            follow least-privilege IAM and are observable with CloudWatch.
           </p>
+
+          <ul className="project-bullets">
+            <li><strong>Frontend:</strong> AWS Amplify static hosting (HTML/CSS/JS)</li>
+            <li><strong>API:</strong> API Gateway → Lambda (<em>GetUploadUrl</em>) returns pre-signed S3 PUT URLs</li>
+            <li><strong>Storage:</strong> Private S3 bucket for uploads</li>
+            <li><strong>Events:</strong> S3 ObjectCreated → EventBridge → Step Functions workflow</li>
+            <li><strong>Processing:</strong> Lambda (<em>MetadataWorker</em>) tags files (e.g., “resume”, “invoice”) and writes to DynamoDB</li>
+            <li><strong>Observability:</strong> CloudWatch logs & alarms</li>
+            <li><strong>Security:</strong> IAM roles/policies with least privilege</li>
+          </ul>
+
           <a
             href="https://github.com/anthonymoore3363/AWS_Serverless_Metadata_Extraction"
             target="_blank"
@@ -50,17 +72,31 @@ function App() {
           </a>
         </motion.section>
 
-        <motion.section id="skills" className="skills card" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, duration: 0.8 }}>
+        {/* SKILLS */}
+        <motion.section
+          id="skills"
+          className="skills card"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.8 }}
+        >
           <h2>Skills & Technologies</h2>
           <ul>
-            <li><FaAws /> AWS (S3, Lambda, DynamoDB, IAM)</li>
+            <li><FaAws /> AWS (Amplify, API Gateway, Lambda, S3, DynamoDB, EventBridge, Step Functions, CloudWatch, IAM)</li>
             <li><FaPython /> Python & JavaScript (React)</li>
-            <li>Infrastructure as Code (CloudFormation)</li>
+            <li>Serverless design & least-privilege IAM</li>
             <li>CI/CD & GitHub Actions</li>
           </ul>
         </motion.section>
 
-        <motion.section id="contact" className="contact card" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7, duration: 0.8 }}>
+        {/* CONTACT */}
+        <motion.section
+          id="contact"
+          className="contact card"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7, duration: 0.8 }}
+        >
           <h2>Contact</h2>
           <p>If you'd like to collaborate or have a project in mind, feel free to reach out!</p>
           <a className="contact-button" href="mailto:anthonymoore3363@gmail.com">
