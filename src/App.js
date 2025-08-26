@@ -46,7 +46,7 @@ function App() {
           <h2 className="project-title">Serverless Metadata Extraction (AWS + Amplify)</h2>
 
           <p className="project-description">
-            Event-driven, serverless pipeline built manually (no CloudFormation) and fronted by an
+            Event-driven, serverless pipeline built manually and fronted by an
             Amplify-hosted website. Users upload documents via pre-signed S3 URLs; S3 events trigger
             processing to extract simple metadata/tags and store results in DynamoDB. All resources
             follow least-privilege IAM and are observable with CloudWatch.
